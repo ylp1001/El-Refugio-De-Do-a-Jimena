@@ -3,20 +3,25 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Refugio de Doña Jimena </title>
+    <title>El Refugio de Doña Jimena</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <style>
       body {
         font-family: 'Roboto', sans-serif;
         margin: 0;
         padding: 0;
-        background-image: url('https://www.example.com/tu-imagen-de-fondo.jpg'); /* Cambia el enlace de la imagen */
-        background-size: cover;
+        background-image: url('https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/imagen2Catedral.jpg'); 
+        background-size: cover; /* Cambiado a cover para cubrir toda la pantalla */
         background-position: center;
+        background-repeat: no-repeat; /* No repetir la imagen */
         color: #fff;
         text-align: center;
         height: 100vh;
+        display: flex;
+        justify-content: center; /* Centra el contenido horizontalmente */
+        align-items: center; /* Centra el contenido verticalmente */
       }
+
       h1 {
         background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semi-transparente */
         color: #f4f4f4;
@@ -24,26 +29,32 @@
         margin: 0;
         text-transform: uppercase;
       }
+
       /* Título "EL REFUGIO DE DOÑA JIMENA" */
       .titulo-principal {
         font-family: 'Montserrat', sans-serif; /* Fuente diferente para el título principal */
         font-size: 3.5em; /* Hacemos el texto más grande */
         margin-bottom: 10px;
       }
-      /* Título "Normas del apartamento" */
+
+      /* Título "Documentos del apartamento" */
       .titulo-secundario {
         font-family: 'Roboto', sans-serif; /* Fuente para el título secundario */
         font-size: 2em; /* Tamaño más pequeño que el título principal */
         margin-top: 0;
         font-weight: 500;
       }
+
+      /* Recuadro de los documentos */
       .container {
         padding: 40px;
         background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para los enlaces */
         border-radius: 10px;
         display: inline-block;
         margin-top: 30px;
+        position: relative; /* Para que el desplegable se ubique dentro del contenedor */
       }
+
       a {
         text-decoration: none;
         font-size: 1.2em;
@@ -54,24 +65,88 @@
         padding: 15px;
         border-radius: 8px;
         transition: all 0.3s ease;
+        position: relative;
       }
+
       a:hover {
         background-color: #45a049; /* Un verde más oscuro */
         transform: scale(1.05);
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
       }
+
       .container a {
         font-weight: bold;
+      }
+
+      /* Estilos para el menú desplegable */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro para el desplegable */
+        min-width: 160px;
+        border-radius: 8px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: #fff;
+        padding: 10px 15px;
+        text-decoration: none;
+        display: block;
+        font-size: 1em;
+        font-weight: normal;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #45a049; /* Un verde más oscuro */
+      }
+
+      /* Mostrar el desplegable solo cuando el usuario haga clic */
+      .dropdown.active .dropdown-content {
+        display: block;
       }
     </style>
   </head>
   <body>
-    <h1 class="titulo-principal">EL REFUGIO DE DOÑA JIMENA</h1>
-    <h1 class="titulo-secundario">Normas del apartamento</h1>
-    <div class="container">
-      <a href="archivo1.pdf" download>Descargar Documento 1</a>
-      <a href="archivo2.pdf" download>Descargar Documento 2</a>
-      <a href="archivo3.pdf" download>Descargar Documento 3</a>
+    <div>
+      <h1 class="titulo-principal">EL REFUGIO DE DOÑA JIMENA</h1>
+      <h1 class="titulo-secundario">Documentos del apartamento</h1>
+      <div class="container">
+        <!-- Botón con el menú desplegable que se activará al hacer clic -->
+        <div class="dropdown">
+          <a href="javascript:void(0);" onclick="toggleDropdown(this)">Documento 1</a>
+          <div class="dropdown-content">
+            <a href="archivo1.pdf" target="_blank">Ver Documento 1</a>
+            <a href="archivo1.pdf" download>Descargar Documento 1</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="javascript:void(0);" onclick="toggleDropdown(this)">Documento 2</a>
+          <div class="dropdown-content">
+            <a href="archivo2.pdf" target="_blank">Ver Documento 2</a>
+            <a href="archivo2.pdf" download>Descargar Documento 2</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="javascript:void(0);" onclick="toggleDropdown(this)">Documento 3</a>
+          <div class="dropdown-content">
+            <a href="archivo3.pdf" target="_blank">Ver Documento 3</a>
+            <a href="archivo3.pdf" download>Descargar Documento 3</a>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script>
+      // Función para activar el desplegable al hacer clic
+      function toggleDropdown(element) {
+        // Si el desplegable está activo, lo desactiva
+        var dropdown = element.parentElement;
+        dropdown.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>
