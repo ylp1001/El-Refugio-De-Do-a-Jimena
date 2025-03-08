@@ -4,149 +4,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Refugio de Doña Jimena</title>
+	<link rel="icon" href="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/fotos/Logo.jpeg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet"> <!-- Añadido Cardo -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <style>
       body {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Cardo', serif; /* Fuente Cardo */
         margin: 0;
         padding: 0;
-        background-image: url('https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/imagen2Catedral.jpg'); 
-        background-size: cover; /* Cambiado a cover para cubrir toda la pantalla */
-        background-position: center;
-        background-repeat: no-repeat; /* No repetir la imagen */
-        color: #fff;
+        background-color: #F9F9F9; /* Color de fondo */
+        color: #333; /* Color de texto adecuado para un fondo claro */
         text-align: center;
         height: 100vh;
         display: flex;
-        justify-content: center; /* Centra el contenido horizontalmente */
-        align-items: center; /* Centra el contenido verticalmente */
+        flex-direction: column;
+      }
+
+      /* Estilos para la cabecera con el logo */
+      .header {
+        background-color: #B7AE9E;
+        padding: 20px 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .header img {
+        max-height: 70px; /* Imagen más pequeña (ajustado de 150px a 100px) */
+        object-fit: contain; /* Mantiene la proporción de la imagen */
+        border-radius: 15px; /* Redondeo de las esquinas */
       }
 
       h1 {
-        background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semi-transparente */
-        color: #f4f4f4;
+        background-color: transparent; /* Eliminado el fondo oscuro */
+        color: #000; /* Color negro para el texto */
         padding: 20px 0;
         margin: 0;
         text-transform: uppercase;
       }
 
+      /* Nueva cabecera con color #998B7A */
+      .nueva-cabecera {
+        background-color: #998B7A;
+        padding: 15px 0;
+      }
+
       /* Título "EL REFUGIO DE DOÑA JIMENA" */
       .titulo-principal {
-        font-family: 'Montserrat', sans-serif; /* Fuente diferente para el título principal */
-        font-size: 3.5em; /* Hacemos el texto más grande */
-        margin-bottom: 10px;
+        font-family: 'Cardo', serif; /* Fuente Cardo para el título principal */
+        font-size: 2.5em; /* Hacemos el texto más grande */
+        margin-bottom: 5px; /* Reducido el margen inferior */
+        color: #000; /* Color negro */
+        margin-top: 30px; /* Añadido margen superior */
       }
 
       /* Título "Documentos del apartamento" */
       .titulo-secundario {
-        font-family: 'Roboto', sans-serif; /* Fuente para el título secundario */
-        font-size: 2em; /* Tamaño más pequeño que el título principal */
-        margin-top: 0;
+        font-family: 'Cardo', serif; /* Fuente Cardo para el título secundario */
+        font-size: 1.5em; /* Tamaño más pequeño que el título principal */
+        margin-top: 5px; /* Reducido el margen superior */
         font-weight: 500;
+        color: #000; /* Color negro */
+      }
+
+      /* Contenedor para el contenido que sigue después de las cabeceras */
+      .contenido {
+        background-color: #F9F9F9; /* Cambié el color de fondo aquí */
+        padding: 40px;
       }
 
       /* Recuadro de los documentos */
-      .container {
-        padding: 40px;
-        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para los enlaces */
-        border-radius: 10px;
-        display: inline-block;
+      .documentos-container {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px; /* Espaciado entre los cuadros */
+        flex-wrap: wrap;
         margin-top: 30px;
-        position: relative; /* Para que el desplegable se ubique dentro del contenedor */
       }
 
-      a {
+      .documento {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        width: 220px; /* Ancho del cuadro */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .documento:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .documento a {
         text-decoration: none;
-        font-size: 1.2em;
-        color: #fff;
-        margin: 15px 0;
+        font-size: 1.1em;
+        color: #333;
         display: block;
-        background-color: #4CAF50;
-        padding: 15px;
+        margin: 15px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
         border-radius: 8px;
         transition: all 0.3s ease;
-        position: relative;
       }
 
-      a:hover {
-        background-color: #45a049; /* Un verde más oscuro */
-        transform: scale(1.05);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      .documento a:hover {
+        color: #4CAF50;
+        background-color: #e0e0e0;
       }
 
-      .container a {
-        font-weight: bold;
-      }
-
-      /* Estilos para el menú desplegable */
-      .dropdown-content {
+      /* Estilos para la imagen */
+      .image-container {
         display: none;
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro para el desplegable */
-        min-width: 160px;
-        border-radius: 8px;
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-        z-index: 1;
+        margin-top: 50px; /* Más espacio con respecto a los cuadros de documentos */
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        transition: transform 0.2s ease-in-out;
       }
 
-      .dropdown-content a {
-        color: #fff;
-        padding: 10px 15px;
-        text-decoration: none;
-        display: block;
-        font-size: 1em;
-        font-weight: normal;
+      .image-container img {
+        width: 100%;
+        height: auto;
+        border: 3px solid #ccc;
+        cursor: pointer; /* Para indicar que la imagen es clickeable */
       }
 
-      .dropdown-content a:hover {
-        background-color: #45a049; /* Un verde más oscuro */
+      .itinerario-img {
+        margin: 10px 0;
+        width: 100%;
+        max-width: 700px;
+      }
+	  
+	 .normas-img {
+        margin: 10px 0;
+        width: 100%;
+        max-width: 700px;
+      }
+	  
+	   .reclamaciones-img {
+        margin: 10px 0;
+        width: 100%;
+        max-width: 700px;
+      }
+	  
+	  .plano-img {
+        margin: 10px 0;
+        width: 100%;
+        max-width: 700px;
       }
 
-      /* Mostrar el desplegable solo cuando el usuario haga clic */
-      .dropdown.active .dropdown-content {
-        display: block;
-      }
     </style>
   </head>
   <body>
-    <div>
-      <h1 class="titulo-principal">EL REFUGIO DE DOÑA JIMENA</h1>
-      <h1 class="titulo-secundario">Documentos del apartamento</h1>
-      <div class="container">
-        <!-- Botón con el menú desplegable que se activará al hacer clic -->
-        <div class="dropdown">
-          <a href="javascript:void(0);" onclick="toggleDropdown(this)">Documento 1</a>
-          <div class="dropdown-content">
-            <a href="archivo1.pdf" target="_blank">Ver Documento 1</a>
-            <a href="archivo1.pdf" download>Descargar Documento 1</a>
-          </div>
+    <!-- Cabecera con fondo y la imagen centrada -->
+    <div class="header">
+      <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/fotos/Logo.jpeg" alt="Imagen de cabecera">
+    </div>
+
+    <!-- Nueva cabecera con el color #998B7A -->
+    <div class="nueva-cabecera">
+      <!-- Aquí ya no están los títulos, sino debajo de esta cabecera -->
+    </div>
+
+    <!-- Títulos debajo de las cabeceras -->
+    <h1 class="titulo-principal">EL REFUGIO DE DOÑA JIMENA</h1>
+    <h1 class="titulo-secundario">Información del apartamento</h1>
+
+    <!-- Contenedor de contenido debajo de las cabeceras -->
+    <div class="contenido">
+      <div class="documentos-container">
+        <!-- Cuadro 1 -->
+		<div class="documento">
+		  <h3>Normas del apartamento</h3>
+          <a href="#" onclick="mostrarImagenNormas()">Ver</a>
+		  <a href="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento.pdf" download>Descargar</a>
+		</div>
+
+        <!-- Cuadro 2 -->
+        <div class="documento">
+          <h3>Hoja de reclamaciones</h3>
+          <a href="#" onclick="mostrarImagenHojaReclamaciones()">Ver</a>
+          <a href="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Hoja_reclamaciones.pdf" download>Descargar</a>
         </div>
 
-        <div class="dropdown">
-          <a href="javascript:void(0);" onclick="toggleDropdown(this)">Documento 2</a>
-          <div class="dropdown-content">
-            <a href="archivo2.pdf" target="_blank">Ver Documento 2</a>
-            <a href="archivo2.pdf" download>Descargar Documento 2</a>
-          </div>
+        <!-- Cuadro 3 -->
+        <div class="documento">
+          <h3>Planes Turísticos</h3>
+          <a href="#" onclick="mostrarImagenes()">Ver</a>
+          <a href="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario.pdf" download>Descargar</a>
         </div>
 
-        <div class="dropdown">
-          <a href="javascript:void(0);" onclick="toggleDropdown(this)">Documento 3</a>
-          <div class="dropdown-content">
-            <a href="archivo3.pdf" target="_blank">Ver Documento 3</a>
-            <a href="archivo3.pdf" download>Descargar Documento 3</a>
-          </div>
+        <!-- Cuadro 4 -->
+        <div class="documento">
+          <h3>Plano de Burgos</h3>
+          <a href="#" onclick="mostrarImagen()">Ver</a>
+          <a href="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/PlanoB.jpg" download>Descargar</a>
         </div>
+      </div>
+
+ <!-- Contenedor de las imágenes de las normas -->
+      <div class="image-container" id="image-normas-container">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0001.jpg" alt="normas Página 1" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0002.jpg" alt="normas Página 2" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0003.jpg" alt="normas Página 3" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0004.jpg" alt="normas Página 4" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0005.jpg" alt="normas Página 5" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0006.jpg" alt="normas Página 6" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0007.jpg" alt="normas Página 7" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0008.jpg" alt="normas Página 8" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0009.jpg" alt="normas Página 9" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0010.jpg" alt="normas Página 10" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0011.jpg" alt="normas Página 11" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0012.jpg" alt="normas Página 12" class="normas-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Normas_Apartamento_page-0013.jpg" alt="normas Página 13" class="normas-img">
+      </div>
+	  
+	  
+      <!-- Contenedor de las imágenes del itinerario -->
+      <div class="image-container" id="image-itinerario-container">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0001.jpg" alt="Itinerario Página 1" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0002.jpg" alt="Itinerario Página 2" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0003.jpg" alt="Itinerario Página 3" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0004.jpg" alt="Itinerario Página 4" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0005.jpg" alt="Itinerario Página 5" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0006.jpg" alt="Itinerario Página 6" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0007.jpg" alt="Itinerario Página 7" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0008.jpg" alt="Itinerario Página 8" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0009.jpg" alt="Itinerario Página 9" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0010.jpg" alt="Itinerario Página 10" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0011.jpg" alt="Itinerario Página 11" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0012.jpg" alt="Itinerario Página 12" class="itinerario-img">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/Itinerario_page-0013.jpg" alt="Itinerario Página 13" class="itinerario-img">
+      </div>
+
+     
+	  
+	   <!-- Contenedor de la imagen Hoja de Reclamaciones -->
+      <div class="image-container" id="image-hoja-reclamaciones-container">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/HojaReclamacionesJPG.jpg" alt="Hoja de Reclamaciones" id="hoja-reclamaciones" class= "reclamaciones-img">
+      </div>
+
+      <!-- Contenedor de la imagen Plano de Burgos -->
+      <div class="image-container" id="image-container">
+        <img src="https://raw.githubusercontent.com/ylp1001/El-Refugio-De-Do-a-Jimena/main/PlanoB.jpg" alt="Plano de Burgos" id="planoburgos" class="plano-img" onclick="zoomImage(event)">
       </div>
     </div>
 
     <script>
-      // Función para activar el desplegable al hacer clic
-      function toggleDropdown(element) {
-        // Si el desplegable está activo, lo desactiva
-        var dropdown = element.parentElement;
-        dropdown.classList.toggle("active");
-      }
-    </script>
+	  function ocultarImagenes() {
+		// Oculta todos los contenedores de imágenes
+		var contenedoresImagenes = document.querySelectorAll('.image-container');
+		contenedoresImagenes.forEach(function(container) {
+		  container.style.display = 'none';
+		});
+	  }
+
+	  function mostrarImagen() {
+		ocultarImagenes(); // Primero oculta todas las imágenes
+		var container = document.getElementById('image-container');
+		container.style.display = 'block'; // Muestra solo el contenedor del plano
+	  }
+
+	  function mostrarImagenHojaReclamaciones() {
+		ocultarImagenes(); // Primero oculta todas las imágenes
+		var container = document.getElementById('image-hoja-reclamaciones-container');
+		container.style.display = 'block'; // Muestra solo el contenedor de la hoja de reclamaciones
+	  }
+	  
+	  function mostrarImagenNormas() {
+		ocultarImagenes(); // Primero oculta todas las imágenes
+		var container = document.getElementById('image-normas-container');
+		container.style.display = 'block'; // Muestra solo el contenedor de la hoja de reclamaciones
+	  }
+
+
+	  function mostrarImagenes() {
+		ocultarImagenes(); // Primero oculta todas las imágenes
+		var container = document.getElementById('image-itinerario-container');
+		container.style.display = 'block'; // Muestra solo el contenedor de los planes turísticos
+	  }
+
+	  function zoomImage(event) {
+		const image = event.target;
+		const currentScale = image.style.transform || 'scale(1)';
+		const scaleValue = currentScale === 'scale(1)' ? 'scale(1.5)' : 'scale(1)';
+		image.style.transform = scaleValue;
+	  }
+	</script>
+
   </body>
 </html>
